@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/services/auth_service.dart';
-import 'package:myapp/pages/auth/login_page.dart';
+import '/services/auth_service.dart';
+import '/pages/auth/login_page.dart';
+import '../kategori/list_kategori_page.dart'; // Import halaman Tag
+import '../tag/list_tag_page.dart';
 
 class HomePage extends StatelessWidget {
   final AuthService _authService = AuthService();
@@ -32,6 +34,25 @@ class HomePage extends StatelessWidget {
             Text(
               'Welcome to Home Page!',
               style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => KategoriPage()),
+                );
+              },
+              child: Text('Kategori'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TagPage()),
+                );
+              },
+              child: Text('Tag'),
             ),
           ],
         ),
